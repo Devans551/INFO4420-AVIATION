@@ -128,6 +128,7 @@ table {
 }
 html {
   background-color: #FFFFFF;
+  font-family: Arial, sans-serif, Helvetica;
 }
 .container {
   max-width: 100%;
@@ -136,4 +137,20 @@ html {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
+}
+.container a {
+  color: #FFFFFF;
+  padding-right: 10px;
+  margin: 0px;
+}
+.container a img {
+  margin-right: 10px;
+}
+.container .navbar-nav {
+  width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.row {
+  background-color: #8E8C89;
 }
