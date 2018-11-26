@@ -42,7 +42,31 @@
             </div>
         </nav> 
     </nav>
+<!--	LOGIN FORM   -->
+<form name="loginform" onSubmit="return validateForm();" action="report.php" method="post">
+    <label>User name</label>
+    <input type="text" name="usr" placeholder="username"> 
+    <label>Password</label>
+    <input type="password" name="pword" placeholder="password">
+    <input type="submit" value="Login"/>
+</form>
 
+<script>
+    function validateForm() {
+        var un = document.loginform.usr.value;
+        var pw = document.loginform.pword.value;
+        var username = "admin"; 
+        var password = "password";
+        if ((un == username) && (pw == password)) {
+            return true;
+        }
+        else {
+            alert ("Login was unsuccessful, please check your username and password");
+            return false;
+        }
+  }
+</script>
+<!--	END LOGIN FORM  -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
