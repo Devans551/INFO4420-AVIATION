@@ -48,9 +48,9 @@
 		<h2>Book Report</h2>
 		<?php
 			$servername = "localhost";
-			$username = "username";
-			$password = "password";
-			$dbname = "myDB";
+			$username = "root";
+			$password = "";
+			$dbname = "aviation";
 
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -65,7 +65,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["BookId"]. " - Title: " . $row["Title"]. "Copies: " . $row["NumbCopies"]. "<br>";
+					echo "id: " . $row["BookId"]. " - Title: " . $row["Title"]. "Copies: " . $row["NumCopies"]. "<br>";
 				}
 			} else {
 				echo "0 results";
@@ -77,9 +77,9 @@
 		<h2>Shirt Report</h2>
 		<?php
 			$servername = "localhost";
-			$username = "username";
-			$password = "password";
-			$dbname = "myDB";
+			$username = "root";
+			$password = "";
+			$dbname = "aviation";
 
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -106,9 +106,9 @@
 		<h2>Instructors</h2>
 		<?php
 			$servername = "localhost";
-			$username = "username";
-			$password = "password";
-			$dbname = "myDB";
+			$username = "root";
+			$password = "";
+			$dbname = "aviation";
 
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -135,9 +135,9 @@
 		<h2>Issued</h2>
 		<?php
 			$servername = "localhost";
-			$username = "username";
-			$password = "password";
-			$dbname = "myDB";
+			$username = "root";
+			$password = "";
+			$dbname = "aviation";
 
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
