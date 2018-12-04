@@ -65,7 +65,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["BookId"]. " - Title: " . $row["Title"]. "Copies: " . $row["NumCopies"]. "<br>";
+					echo "id: " . $row["BookId"]. "   |   Title: " . $row["Title"]. "   |   Copies: " . $row["NumCopies"]. "<br>";
 				}
 			} else {
 				echo "0 results";
@@ -94,7 +94,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["Shirtid"]. " - Size: " . $row["Size"]. "Amount: " . $row["NumSize"]. "<br>";
+					echo "id: " . $row["ShirtId"]. "   |   Size: " . $row["Size"]. "   |   Amount: " . $row["NumSize"]. "<br>";
 				}
 			} else {
 				echo "0 results";
@@ -117,13 +117,13 @@
 				die("Connection failed: " . $conn->connect_error);
 			} 
 
-			$sql = "SELECT InstructorId, Name, Email, Phone, ShirtSize FROM Instructors";
+			$sql = "SELECT InstructorId, Name, Email, Phone FROM Instructors";
 			$result = $conn->query($sql);
 
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["InstructorId"]. " - Name: " . $row["Name"]. "Email: " . $row["Email"]. "Phone Number: " . $row["Phone"]. "Shirt Size: " . $row["ShirtSize"]. "<br>";
+					echo "id: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br>";
 				}
 			} else {
 				echo "0 results";
@@ -152,7 +152,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["IssuedId"]. " - Book: " . $row["BookID"]. "Instructor: " . $row["InstructorId"]. "Shirt: " . $row["ShirtId"]. "Issued Date: " . $row["IssuedDate"]. "<br>";
+					echo "id: " . $row["IssuedId"]. "  |  Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br>";
 				}
 			} else {
 				echo "0 results";
