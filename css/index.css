@@ -150,6 +150,16 @@ html {
   padding-right: 10px;
   margin: 0px;
 }
+.container .navbar a.navbar-brand {
+  color: #FFFFFF;
+  padding-right: 10px;
+  margin: 0px;
+}
+.container .navbar a.navbar-brand:visited {
+  color: #FFFFFF;
+  padding-right: 10px;
+  margin: 0px;
+}
 .container a img {
   margin-right: 10px;
 }
