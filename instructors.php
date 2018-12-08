@@ -5,13 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Reporting Page</title>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Instructors Page</title>
 </head>
 
 <body>
@@ -36,75 +39,37 @@
                         <a class="nav-link" href="inventory.html">Inventory</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reporting</a>
+                        <a class="nav-link" href="report.php">Reporting</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="instructors.php"3>Instructors</a>
+                        <a class="nav-link" href="#">Instructors</a>
                     </li>
                 </ul>
+            </div>
+			<div>
+				<div data-role="main" class="ui-content">
+					<a href="#addInstructor" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Instructor</a>
+					<div data-role="popup" id="addInstructor" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/action_page_post.php">
+						<div>
+						  <h3>Add Instructor</h3>
+						  <label for="itemID" class="ui-hidden-accessible">Instructor UVU ID:</label>
+						  <input type="text" name="user" id="uvID" placeholder="UVU #">
+						  <label for="name" class="ui-hidden-accessible">Name:</label>
+						  <input type="text" name="name" id="name" placeholder="Name">
+						  <label for="email" class="ui-hidden-accessible">Email:</label>
+						  <input type="text" name="email" id="email" placeholder="Email">
+						  <label for="phoneNumber" class="ui-hidden-accessible">Phone Number:</label>
+						  <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+          					<input type="submit" data-inline="true" value="Submit">
+						</div>
+					  </form>
+					</div>
+				</div>
             </div>
         </nav> 
     </nav>
 	
-	All of the reports!
-	<div class="col-md-6">
-		<h2>Book Report</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT BookId, Title, NumCopies FROM Book";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["BookId"]. "   |   Title: " . $row["Title"]. "   |   Copies: " . $row["NumCopies"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
-	<div class="col-md-6">
-		<h2>Shirt Report</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT ShirtId, Size, NumSize FROM Shirt";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["ShirtId"]. "   |   Size: " . $row["Size"]. "   |   Amount: " . $row["NumSize"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
 	<div class="col-md-6">
 		<h2>Instructors</h2>
 		<?php
@@ -134,64 +99,8 @@
 			$conn->close();
 		?>
 	</div>
-	<div class="col-md-6">
-		<h2>Issued</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT IssuedId, BookId, InstructorId, ShirtId, IssuedDate FROM Issued";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["IssuedId"]. "  |  Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
-	<div class="col-md-6">
-		<h2>Items Issued</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT  InstructorName, ritem, rdate FROM report";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "Instructor: " . $row["InstructorName"]. "   |   Date: " . $row["rdate"]. "   |   Item: " . $row["ritem"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
+	
+	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

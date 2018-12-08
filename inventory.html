@@ -5,12 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>Inventory Page</title>
 </head>
 
@@ -38,11 +41,43 @@
                     <li class="nav-item">
                         <a class="nav-link" href="report.php">Reporting</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="instructors.php">Instructors</a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <button type="button" class="btn btn-primary btn-sm">Add Items</button>
-                <button type="button" class="btn btn-outline-secondary btn-sm">Remove Items</button>
+				<div data-role="main" class="ui-content">
+					<a href="#addInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Items</a>
+					<div data-role="popup" id="addInventory" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/action_page_post.php">
+						<div>
+						  <h3>Item to add information</h3>
+						  <label for="itemID" class="ui-hidden-accessible">Item ID:</label>
+						  <input type="text" name="user" id="itemID" placeholder="Item #">
+						  <label for="quantity" class="ui-hidden-accessible">Quantity:</label>
+						  <input type="password" name="passw" id="quantity" placeholder="Quantity">
+          					<input type="submit" data-inline="true" value="Submit">
+						</div>
+					  </form>
+					</div>
+				</div>	
+                
+				<div data-role="main" class="ui-content">
+					<a href="#removeInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Remove Items</a>
+					<div data-role="popup" id="removeInventory" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/action_page_post.php">
+						<div>
+						  <h3>Item to remove information</h3>
+						  <label for="itemID" class="ui-hidden-accessible">Item ID:</label>
+						  <input type="text" name="user" id="itemID" placeholder="Item #">
+						  <label for="quantity" class="ui-hidden-accessible">Quantity:</label>
+						  <input type="password" name="passw" id="quantity" placeholder="Quantity">
+          					<input type="submit" data-inline="true" value="Submit">
+						</div>
+					  </form>
+					</div>
+				</div>	
             </div>
         </nav>
     </nav>
