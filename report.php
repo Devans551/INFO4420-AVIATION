@@ -5,12 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>Reporting Page</title>
 </head>
 
@@ -43,68 +46,51 @@
                     </li>
                 </ul>
             </div>
+			<div>
+				<div data-role="main" class="ui-content">
+					<a href="#assign" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Assign Books</a>
+					<div data-role="popup" id="assign" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/action_page_post.php">
+						<div>
+						  <h3>Assign Books</h3>
+						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
+						  <input type="text" name="user" id="uvuID" placeholder="Instructor UVU #">
+						  <label for="bookID" class="ui-hidden-accessible">Book ID</label>
+						  <input type="int" name="bookID" id="bookID" placeholder="BookID">
+						  <label for="quantity" class="ui-hidden-accessible">Quantity</label>
+						  <input type="int" name="quantity" id="quantity" placeholder="Quantity">
+						  <label for="date" class="ui-hidden-accessible">Date:</label>
+						  <input type="date" name="date" id="date" >
+          					<input type="submit" data-inline="true" value="Submit">
+						</div>
+					  </form>
+					</div>
+				</div>
+            </div>
+			<div>
+				<div data-role="main" class="ui-content">
+					<a href="#assign" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Assign Shirts</a>
+					<div data-role="popup" id="assign" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/action_page_post.php">
+						<div>
+						  <h3>Assign Shirts</h3>
+						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
+						  <input type="text" name="user" id="uvuID" placeholder="Instructor UVU #">
+						  <label for="ShirtID" class="ui-hidden-accessible">Shirt Size</label>
+						  <input type="int" name="bookID" id="shirtID" placeholder="BookID">
+						  <label for="quantity" class="ui-hidden-accessible">Quantity</label>
+						  <input type="int" name="quantity" id="quantity" placeholder="Quantity">
+						  <label for="date" class="ui-hidden-accessible">Date:</label>
+						  <input type="date" name="date" id="date" >
+          					<input type="submit" data-inline="true" value="Submit">
+						</div>
+					  </form>
+					</div>
+				</div>
+            </div>
         </nav> 
     </nav>
 	
-	All of the reports!
-	<div class="col-md-6">
-		<h2>Book Report</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT BookId, Title, NumCopies FROM Book";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["BookId"]. "   |   Title: " . $row["Title"]. "   |   Copies: " . $row["NumCopies"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
-	<div class="col-md-6">
-		<h2>Shirt Report</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT ShirtId, Size, NumSize FROM Shirt";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["ShirtId"]. "   |   Size: " . $row["Size"]. "   |   Amount: " . $row["NumSize"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
-	</div>
 	<div class="col-md-6">
 		<h2>Instructors</h2>
 		<?php
@@ -126,7 +112,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br>";
+					echo "ID: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br>";
 				}
 			} else {
 				echo "0 results";
@@ -155,7 +141,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["IssuedId"]. "  |  Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br>";
+					echo "Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br>";
 				}
 			} else {
 				echo "0 results";

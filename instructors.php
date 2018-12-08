@@ -50,11 +50,11 @@
 				<div data-role="main" class="ui-content">
 					<a href="#addInstructor" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Instructor</a>
 					<div data-role="popup" id="addInstructor" class="ui-content" style="min-width:250px;">
-					  <form method="post" action="/action_page_post.php">
+					  <form method="post" action="/add-instructor.php">
 						<div>
 						  <h3>Add Instructor</h3>
-						  <label for="itemID" class="ui-hidden-accessible">Instructor UVU ID:</label>
-						  <input type="text" name="user" id="uvID" placeholder="UVU #">
+						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
+						  <input type="text" name="user" id="uvuID" placeholder="UVU #">
 						  <label for="name" class="ui-hidden-accessible">Name:</label>
 						  <input type="text" name="name" id="name" placeholder="Name">
 						  <label for="email" class="ui-hidden-accessible">Email:</label>
