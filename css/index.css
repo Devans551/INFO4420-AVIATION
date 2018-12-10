@@ -195,3 +195,7 @@ footer {
 a.nav-link.ui-link {
     color: #ffffff;
 }
+b, strong {
+    font-weight: bolder;
+}
+
