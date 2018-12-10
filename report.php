@@ -69,11 +69,11 @@
             </div>
 			<div>
 				<div data-role="main" class="ui-content">
-					<a href="#assign" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Assign Shirts</a>
-					<div data-role="popup" id="assign" class="ui-content" style="min-width:250px;">
+					<a href="#assign2" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Assign Shirts</a>
+					<div data-role="popup" id="assign2" class="ui-content" style="min-width:250px;">
 					  <form method="post" action="/action_page_post.php">
 						<div>
-						  <h3>Assign Shirts</h3>
+						  <h3>Assign Shirts</h3> 
 						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
 						  <input type="text" name="user" id="uvuID" placeholder="Instructor UVU #">
 						  <label for="ShirtID" class="ui-hidden-accessible">Shirt Size</label>
