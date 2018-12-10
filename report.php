@@ -91,7 +91,7 @@
         </nav> 
     </nav>
 	
-	<div class="col-md-6">
+	<div class="col-md-10">
 		<h2>Instructors</h2>
 		<?php
 			$servername = "localhost";
@@ -112,7 +112,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "ID: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br><hr<";
+					echo "ID: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br><hr>";
 				}
 			} else {
 				echo "0 results";
@@ -120,7 +120,7 @@
 			$conn->close();
 		?>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-10">
 		<h2>Issued</h2>
 		<?php
 			$servername = "localhost";
@@ -141,7 +141,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br>";
+					echo "Book: " . $row["BookId"]. "   |   Instructor: " . $row["InstructorId"]. "   |   Shirt: " . $row["ShirtId"]. "   |   Issued Date: " . $row["IssuedDate"]. "<br><hr>";
 				}
 			} else {
 				echo "0 results";
@@ -170,7 +170,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "Instructor: " . $row["InstructorName"]. "   |   Date: " . $row["rdate"]. "   |   Item: " . $row["ritem"]. "<br>";
+					echo "Instructor: " . $row["InstructorName"]. "   |   Date: " . $row["rdate"]. "   |   Item: " . $row["ritem"]. "<br><hr>";
 				}
 			} else {
 				echo "0 results";
