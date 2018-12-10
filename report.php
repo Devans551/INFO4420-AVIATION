@@ -36,7 +36,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="inventory.html">Inventory</a>
+                        <a class="nav-link" href="inventory.php">Inventory</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reporting</a>
@@ -77,7 +77,7 @@
 						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
 						  <input type="text" name="user" id="uvuID" placeholder="Instructor UVU #">
 						  <label for="ShirtID" class="ui-hidden-accessible">Shirt Size</label>
-						  <input type="int" name="bookID" id="shirtID" placeholder="BookID">
+						  <input type="int" name="shirtID" id="shirtID" placeholder="Shirt Size">
 						  <label for="quantity" class="ui-hidden-accessible">Quantity</label>
 						  <input type="int" name="quantity" id="quantity" placeholder="Quantity">
 						  <label for="date" class="ui-hidden-accessible">Date:</label>
@@ -112,7 +112,7 @@
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					echo "ID: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br>";
+					echo "ID: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br><hr<";
 				}
 			} else {
 				echo "0 results";

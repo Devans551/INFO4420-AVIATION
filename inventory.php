@@ -50,13 +50,13 @@
 				<div data-role="main" class="ui-content">
 					<a href="#addInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Items</a>
 					<div data-role="popup" id="addInventory" class="ui-content" style="min-width:250px;">
-					  <form method="post" action="/action_page_post.php">
+					  <form method="post" action="/aviation/add-item.php">
 						<div>
-						  <h3>Item to add information</h3>
+						  <h3>Item to add information</h3> 
 						  <label for="itemID" class="ui-hidden-accessible">Item Name:</label>
-						  <input type="text" name="user" id="itemID" placeholder="Item Name">
+						  <input type="text" name="itemID" id="itemID" placeholder="Item Name">
 						  <label for="quantity" class="ui-hidden-accessible">Quantity:</label>
-						  <input type="password" name="passw" id="quantity" placeholder="Quantity">
+						  <input type="text" name="quantity" id="quantity" placeholder="Quantity">
           					<input type="submit" data-inline="true" value="Submit">
 						</div>
 					  </form>
