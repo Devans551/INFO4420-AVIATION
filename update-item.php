@@ -1,4 +1,35 @@
-<!doctype html>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "aviation";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$updateID = $_POST['updateID'];
+$amount = $_POST['amount'];
+//$email = $_POST['email'];
+//$phoneNumber = $_POST['phoneNumber'];?\
+
+
+$sql = "UPDATE items 
+			SET quantity = '$amount'
+			WHERE itemID = '$updateID'";
+
+//$prepare->bind_param($_POST['uvuID'], $_POST['name'], $_POST['email'], $_POST['phoneNumber']);
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+mysqli_close($conn);
+?>
+
 <html lang="en">
 
 <head>
@@ -14,7 +45,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <title>Instructors Page</title>
+    <title>Add Items</title>
 </head>
 
 <body>
@@ -42,63 +73,16 @@
                         <a class="nav-link" href="report.php">Reporting</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Instructors</a>
+                        <a class="nav-link" href="instructors.php">Instructors</a>
                     </li>
                 </ul>
-            </div>
-			<div>
-				<div data-role="main" class="ui-content">
-					<a href="#addInstructor" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Instructor</a>
-					<div data-role="popup" id="addInstructor" class="ui-content" style="min-width:250px;">
-					  <form method="post" action="/aviation/add-instructor.php">
-						<div>
-						  <h3>Add Instructor</h3>
-						  <label for="uvuID" class="ui-hidden-accessible">Instructor UVU ID:</label>
-						  <input type="number" name="uvuID" id="uvuID" placeholder="UVU #">
-						  <label for="name" class="ui-hidden-accessible">Name:</label>
-						  <input type="text" name="name" id="name" placeholder="Name">
-						  <label for="email" class="ui-hidden-accessible">Email:</label>
-						  <input type="email" name="email" id="email" placeholder="Email">
-						  <label for="phoneNumber" class="ui-hidden-accessible">Phone Number:</label>
-						  <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
-          					<input type="submit" data-inline="true" id="submit" value="Submit">
-						</div>
-						  
-					  </form>
-					</div>
-				</div>
             </div>
         </nav> 
     </nav>
 	
-	<div class="col-md-6">
-		<h2>Instructors</h2>
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "aviation";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-
-			$sql = "SELECT InstructorId, Name, Email, Phone FROM Instructors";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while($row = $result->fetch_assoc()) {
-					echo "id: " . $row["InstructorId"]. "   |   Name: " . $row["Name"]. "   |   Email: " . $row["Email"]. "   |   Phone Number: " . $row["Phone"]. "<br>";
-				}
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-		?>
+	<div class="thank-you">
+		The item has been added.
+		<a href="inventory.php">Click here</a> to return to the inventory page.
 	</div>
 	
 	

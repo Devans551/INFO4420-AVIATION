@@ -50,13 +50,13 @@
 				<div data-role="main" class="ui-content">
 					<a href="#addInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Add Items</a>
 					<div data-role="popup" id="addInventory" class="ui-content" style="min-width:250px;">
-					  <form method="post" action="/aviation/add-item.php">
+					  <form method="post" action="/aviation/add-new-item.php">
 						<div>
 						  <h3>Item to add information</h3> 
 						  <label for="itemID" class="ui-hidden-accessible">Item Name:</label>
 						  <input type="text" name="itemID" id="itemID" placeholder="Item Name">
 						  <label for="quantity" class="ui-hidden-accessible">Quantity:</label>
-						  <input type="text" name="quantity" id="quantity" placeholder="Quantity">
+						  <input type="number" name="quantity" id="quantity" placeholder="Quantity">
           					<input type="submit" data-inline="true" value="Submit">
 						</div>
 					  </form>
@@ -64,15 +64,15 @@
 				</div>	
                 
 				<div data-role="main" class="ui-content">
-					<a href="#removeInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Remove Items</a>
-					<div data-role="popup" id="removeInventory" class="ui-content" style="min-width:250px;">
-					  <form method="post" action="/action_page_post.php">
+					<a href="#updateInventory" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ">Update Quantities</a>
+					<div data-role="popup" id="updateInventory" class="ui-content" style="min-width:250px;">
+					  <form method="post" action="/aviation/update-item.php">
 						<div>
-						  <h3>Item to remove information</h3>
-						  <label for="removeID" class="ui-hidden-accessible">Item ID:</label>
-						  <input type="text" name="user" id="removeID" placeholder="Item #">
+						  <h3>Item to update information</h3>
+						  <label for="updateID" class="ui-hidden-accessible">Item ID:</label>
+						  <input type="text" name="updateID" id="updateID" placeholder="Item #">
 						  <label for="amount" class="ui-hidden-accessible">Quantity:</label>
-						  <input type="password" name="passw" id="amount" placeholder="Quantity">
+						  <input type="number" name="amount" id="amount" placeholder="New Quantity">
           					<input type="submit" data-inline="true" value="Submit">
 						</div>
 					  </form>
